@@ -4,7 +4,6 @@ const fs = require("fs");
 
 
 
-
 // { recursive: true }  this is used for nestes folder want to create
 
-fs.mkdirSync(``, { recursive: true })
+fs.mkdirSync(`EVENT Module`, { recursive: true })
