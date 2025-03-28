@@ -14,6 +14,10 @@ npm view <package-name> version         // show one package version
 
 npm outdated
 
+npm update
+npx npm-check-update
+npx npm-check-update -u
+
 npm remove <package-name>
 
 
