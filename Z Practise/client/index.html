@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sender</title>
+</head>
+<body>
+    <input type="text" id="messageInp" placeholder="Enter Your Message">
+    <button id="sendBtn">Send Message</button>
+
+    <script>
+        // Get the DOM elements
+        const messageInp = document.getElementById('messageInp');
+        const sendBtn = document.getElementById('sendBtn');
+
+        // Add event listener for the send button
+        sendBtn.addEventListener('click', function() {
+            const message = messageInp.value;
+            if (message) {
+                // Create a JSON object
+                const data = {
+                    message: message
+                };
+
+                // Send the message to the server using Fetch API
+                fetch('http://localhost:8080', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(responseData => {
+                    console.log('Server Response:', responseData);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+                // Clear the input after sending the message
+                messageInp.value = '';
+            } else {
+                alert('Please enter a message.');
+            }
+        });
+    </script>
+</body>
+</html>
