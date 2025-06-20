@@ -11,8 +11,8 @@ let pathName = path.join(__dirname,fileName);
 
 
 // Create
-fs.writeFileSync(pathName, "# Hello I am initial Data", "utf-8");
-console.log("File Has Been Created");
+// fs.writeFileSync(pathName, "# Hello I am initial Data", "utf-8");
+// console.log("File Has Been Created");
 
 
 // Read
@@ -31,23 +31,31 @@ console.log("File Has Been Created");
 
 
 
-
-// rename file read.mc into read.txt
-let newPathName = path.join(__dirname, "read.txt")
-fs.renameSync(pathName, newPathName)
-
-
-
-
-
-
-
-
-
-
+// rename file read.md into read.txt
+// let newPathName = path.join(__dirname, "read.txt")
+// fs.renameSync(pathName, newPathName)
 
 
 // read directory           // condition
-fs.readdir(__dirname, (err, data) => {
-    console.log(data);
-})
+// fs.readdir(__dirname, (err, data) => {
+//     console.log(data);
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+// Bonus = check file exist
+try {
+    fs.accessSync("read.md")
+    console.log("Exist");
+} catch (error) {
+    console.log("No Exist");
+}

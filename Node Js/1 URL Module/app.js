@@ -12,7 +12,8 @@ const server = createServer((req, res) => {
     if(req.method === "GET"){
         let parseUrl = url.parse(req.url, true);
         switch (parseUrl.pathname) {
-            case "/":
+            case "/hello":
+                console.log(parseUrl);
                 res.end("Home Page");
                 break;
             case "/about":

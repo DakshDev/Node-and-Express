@@ -8,7 +8,8 @@ const server = http.createServer((req, res) => {
         res.end();
     }
     if(req.url === "/contact"){
-        res.setHeader("Content-Type", "text/html");
+        res.setHeader("X-Custom-Header", "OKAY");
+        res.statusCode = 226
         res.write("<h1>Hello i am Contact Page</h1>");
         res.end();
     }
